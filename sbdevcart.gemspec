@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Adam Olsen"]
   s.email       = ["aosalias@gmail.com"]
 
-  s.version     = Sbdevcore::VERSION
+  s.version     = Sbdevcart::VERSION
 
   s.rubyforge_project = "sbdev"
 
