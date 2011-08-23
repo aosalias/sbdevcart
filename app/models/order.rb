@@ -58,9 +58,9 @@ class Order < ActiveRecord::Base
     APP_CONFIG[:paypal_url] + {:encrypted => encrypt_for_paypal(values), :cmd => "_s-xclick"}.to_query
   end
 
-  PAYPAL_CERT_PEM = File.read("#{Rails.root}/certs/#{Rails.env.to_s}/paypal_cert.pem")
-  APP_CERT_PEM = File.read("#{Rails.root}/certs/#{Rails.env.to_s}/app_cert.pem")
-  APP_KEY_PEM = File.read("#{Rails.root}/certs/#{Rails.env.to_s}/app_key.pem")
+  PAYPAL_CERT_PEM = File.read("#{Rails.root}/config/certs/#{Rails.env.to_s}/paypal_cert.pem")
+  APP_CERT_PEM = File.read("#{Rails.root}/config/certs/#{Rails.env.to_s}/app_cert.pem")
+  APP_KEY_PEM = File.read("#{Rails.root}/config/certs/#{Rails.env.to_s}/app_key.pem")
 
   def encrypt_for_paypal(values)
     signed = OpenSSL::PKCS7::sign(OpenSSL::X509::Certificate.new(APP_CERT_PEM), OpenSSL::PKey::RSA.new(APP_KEY_PEM, ''), values.map { |k, v| "#{k}=#{v}" }.join("\n"), [], OpenSSL::PKCS7::BINARY)
