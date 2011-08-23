@@ -1,0 +1,9 @@
+<%= render :partial => "indices/show", :locals => { :index => @index }  %><br />
+
+<div id='products'>
+  <%= render :partial => "products/show", :as => :product, :collection => @products %>
+</div>
+
+<% if admin_signed_in? %>
+  <p><%= link_to "New Product", new_product_path, :rel=>"#overlay", :class => "overlayed" %></p>
+<% end %>

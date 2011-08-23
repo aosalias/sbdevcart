@@ -1,0 +1,11 @@
+<div class='ajax-nav'>
+  <%= link_to 'all', orders_path, :class => 'ajax_link button current' %>
+  <%= link_to 'ordered', orders_path(:state => 'ordered'), :class => 'ajax_link button' %>
+  <%= link_to 'paid', orders_path(:state => 'paid'), :class => 'ajax_link button' %>
+  <%= link_to 'shipped', orders_path(:state => 'shipped'), :class => 'ajax_link button' %>
+  <%= link_to 'failed payment', orders_path(:state => 'payment_failed'), :class => 'ajax_link button' %>
+</div>
+<div id='orders'>
+  <ul><%= render :partial => 'show', :collection => @orders, :as => :order %></ul>
+  <%= will_paginate @orders %>
+</div>

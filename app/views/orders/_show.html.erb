@@ -1,0 +1,18 @@
+<div id="<%= order.id %>">
+  <li class='top button'>
+    <%=h order.state %> -
+    <%=h order.id %> -
+    <%=h order.name %> -
+    <%=h order.email %> -
+    <%=h number_to_currency order.total %>
+    <%= link_to "Ship!", ship_order_path(order), :class => "ajax_link" if order.paid? %>
+  </li>
+  <div class='pane'>
+    <%= order.address %>
+    <ul>
+      <% for item in order.order_items do %>
+        <li><%= item.quantity %> - <%= item.product.name %></li> 
+      <% end %>
+    </ul>
+  </div>
+</div>

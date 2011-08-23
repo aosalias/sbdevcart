@@ -1,0 +1,5 @@
+$("#orders").html("<%= escape_javascript(render :partial =>  ('orders/show'), :collection => @orders, :as => :order) %>");
+$("#orders").append("<%= escape_javascript(will_paginate @orders) %>");
+$('#orders').tabs("#orders div.pane", {tabs: 'li.top'});
+paginateAjax();
+$('#orders .ajax_link').ajaxLink();

@@ -1,0 +1,27 @@
+<h2>My Order</h2>
+<%= link_to "Continue Shopping!", products_url, :class => 'button' %>
+<table>
+  <tr>
+    <th>Product</th>
+    <th class='justify_right'>Price</th>
+    <th class='justify_center'>Quantity</th>
+    <th class='justify_right'>Sub Total</th>
+    <th class='justify_center'>Remove</th>
+  </tr>
+  <%= render :partial => "order_items/show", :collection => @order.order_items, :as => :order_item %>
+  <tr>
+    <td>Total:</td>
+    <td></td>
+    <td></td>
+    <td id='total' class='justify_right'><%= number_to_currency @order.total %></td>
+  </tr>
+</table>
+
+<%= link_to "Clear Cart", @order, :confirm => 'Are you sure?', :method => :delete %>
+<%= form_tag paypal_order_path(@order), :class => "validate", :novalidate => "novalidate" %>
+<p>
+  <%= label_tag 'Your Email Address:' %>
+  <%= tag(:input, {:name => "email", :type => :email, :required => true}) %>
+</p>
+<%= submit_tag "Checkout With PayPal!", :class => 'button' %>
+<p>We will ship to the shipping address you provide in PayPal</p>

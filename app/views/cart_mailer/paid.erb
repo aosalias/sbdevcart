@@ -1,0 +1,10 @@
+An order has been paid for!
+
+<% for order_item in @order.order_items %>
+  <%= order_item.quantity %> <%= order_item.product.name %>
+<% end %>
+
+Total: <%= @order.total %>
+Customer Name: <%= @order.name %>
+Customer Email: <%= @order.email %>
+Shipping Address: <%= @order.address %>

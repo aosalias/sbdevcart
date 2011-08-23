@@ -1,0 +1,25 @@
+.product {
+  border: 2px solid black;
+  @include box-shadow($shadow-radius);
+  @include corners-all($corner-radius);
+  padding: 0 10px;
+
+  .button {
+    font-size: 1em;
+  }
+}
+
+#state_nav li {
+  display: inline;
+}
+.pane {
+  margin-left: 20px;
+}
+.pane li {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+#orders li {
+  margin-top:5px;
+}

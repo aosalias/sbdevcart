@@ -1,0 +1,11 @@
+<%= form_for @product, :html => {:class => "validate", :novalidate => "novalidate"} do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :required => true %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price, :required => true %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

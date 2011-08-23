@@ -1,0 +1,7 @@
+<tr class="<%= order_item.id %>">
+  <td><%= order_item.product.name.titleize %></td>
+  <td class='justify_right'><%= number_to_currency order_item.product.price %></td>
+  <td class='justify_center'><%= order_item.quantity %></td>
+  <td class='justify_right'><%= number_to_currency order_item.sub_total %></td>
+  <td class='justify_center'><%= link_to "X", order_item, :class => "ajax_delete" %></td>
+</tr>
