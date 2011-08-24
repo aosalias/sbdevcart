@@ -1,4 +1,4 @@
-<%= render :partial => "indices/show", :locals => { :index => @index }  %><br />
+<%= render :partial => "indices/show", :object => @index, :as => :index  %><br />
 
 <div id='products'>
   <%= render :partial => "products/show", :as => :product, :collection => @products %>

@@ -7,7 +7,7 @@
     <%= f.hidden_field :order_id, :value => @order.id %>
     <%= f.submit "Add To Cart", :class => 'button' %>
   <% end %>
-  <div class='clearfix'><%= render :partial => 'indices/show', :locals => { :index => product.index }  %></div>
+  <div class='clearfix'><%= render :partial => 'indices/show', :object => product.index, :as => :index  %></div>
   <% if admin_signed_in? %>
     <p class='asset-admin'>
       <%= link_to "Edit product", edit_product_path(product), :rel=>"#overlay", :class => "overlayed" %>
