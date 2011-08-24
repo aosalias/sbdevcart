@@ -1,12 +1,16 @@
 <div class='product' id='<%= product.id %>'>
-  <h3><%= product.name.titleize %> - <%= number_to_currency product.price.to_i %></h3>
-  <%= form_for OrderItem.new(:quantity => 1) do |f| %>
-    <%= f.label :quantity %>
-    <%= f.text_field :quantity, :size => 5 %>
-    <%= f.hidden_field :product_id, :value => product.id %>
-    <%= f.hidden_field :order_id, :value => @order.id %>
-    <%= f.submit "Add To Cart", :class => 'button' %>
-  <% end %>
+  <div class='clearfix'>
+    <div class='right'>
+      <%= form_for OrderItem.new(:quantity => 1) do |f| %>
+        <%= f.label :quantity %>
+        <%= f.text_field :quantity, :size => 5 %>
+        <%= f.hidden_field :product_id, :value => product.id %>
+        <%= f.hidden_field :order_id, :value => @order.id %>
+        <%= f.submit "Add To Cart", :class => 'button' %>
+      <% end %>
+    </div>
+    <h3><%= product.name.titleize %> - <%= number_to_currency product.price.to_i %></h3>
+  </div>
   <div class='clearfix'><%= render :partial => 'indices/show', :object => product.index, :as => :index  %></div>
   <% if admin_signed_in? %>
     <p class='asset-admin'>
