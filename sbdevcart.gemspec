@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency('sbdevcore', ">= 0.0.8")
-  s.add_dependency('aasm', ">= 2.2.0")
+  s.add_dependency('aasm', ">= 2.3.1")
 end
