@@ -1,3 +1,4 @@
+require 'aasm'
 require 'sbdevcore'
 require 'sbdevcart'
 

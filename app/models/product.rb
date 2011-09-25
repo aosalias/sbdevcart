@@ -10,4 +10,8 @@ class Product < ActiveRecord::Base
   before_create do
     build_index({:name => name}) unless index
   end
+
+  def title
+    name.downcase.gsub(" ", "_")
+  end
 end
