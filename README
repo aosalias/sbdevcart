@@ -1,0 +1,9 @@
+Easily add basic shopping cart and PayPal integration an application made with Small Business Development - Core.
+
+Add the gem to an existing app, then run the sbdevcart:install rails generator.  Afterwards rerun sbdevcore:seed (will overwrite existing indices) then sbdevcart:seed.
+
+This will create a working products page with some sample products that you can add to a shopping cart
+
+Replace paypal certifications in config/certs and paypal customer information in app_config to hook up to paypal.
+
+/orders is the admin page to view ordered, paid (uses paypal instant payment notifications), shipped and failed payment orders.
